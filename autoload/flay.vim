@@ -86,4 +86,10 @@ function! flay#toggle()
     endif
 endfunction
 
+function! flay#list()
+ruby << EOF
+    VIM.command ":echo 'Lines to flay = #{$signs.join(",")}'"
+EOF
+endfunction
+
 " vim: ai tabstop=4 expandtab shiftwidth=4 softtabstop=4

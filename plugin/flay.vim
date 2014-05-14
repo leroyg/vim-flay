@@ -14,6 +14,7 @@ let g:loaded_flay = 1
 command! -nargs=0 Flay call flay#execute()
 command! -nargs=0 FlayClear call flay#clear_signs()
 command! -nargs=0 FlayToggle call flay#toggle()
+command! -nargs=0 FlayList call flay#list()
 
 augroup flayFiletypes
     autocmd!
