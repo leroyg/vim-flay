@@ -14,6 +14,9 @@ ruby << EOF
 
     VIM.command ":sign define piet text=>> texthl=Search"
 
+    # Clear signs
+    VIM.command ":silent sign unplace file=#{VIM::Buffer.current.name}"
+
     flay = Flay.new
     flay.process(VIM::Buffer.current.name)
     flay.analyze
@@ -24,7 +27,7 @@ ruby << EOF
     hash.each do |mass, lines|
         VIM.command ":echo '" + "Flay mass " + mass.to_s + ", lower is better'"
         lines.each do |line|
-            VIM.command ":sign place 2 name=piet line=" + line.to_s + " file=" + VIM::Buffer.current.name
+            VIM.command ":sign place #{line} name=piet line=#{line} file=#{VIM::Buffer.current.name}"
         end
     end
 EOF
