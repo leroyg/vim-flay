@@ -8,6 +8,7 @@ ruby << EOF
     VIM.command ":sign define piet text=>> texthl=Search"
 
     $signs = []
+    $info  = {}
 EOF
 
 function! flay#execute()
@@ -34,6 +35,7 @@ ruby << EOF
         total_mass += mass
         lines.each do |line|
             new_signs << line.to_i
+            $info[line] = "Similar code found, mass = #{mass}, lines = #{lines.join(",")}"
             VIM.command ":sign place #{line} name=piet line=#{line} file=#{VIM::Buffer.current.name}"
         end
     end
@@ -53,6 +55,8 @@ ruby << EOF
     $signs.each do |sign|
         VIM.command ":sign unplace #{sign}"
     end
+    $signs = []
+    $info  = {}
 EOF
 endfunction
 
@@ -60,7 +64,7 @@ function! flay#draw_info()
 ruby << EOF
     line = VIM.evaluate("line('.')").to_i
     if $signs.include?(line)
-        VIM.command ":echo 'Woa, we are in there!'"
+        VIM.command ":echo '#{$info[line]}'"
     else
         VIM.command ":echo ''"
     end
