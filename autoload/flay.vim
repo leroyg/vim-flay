@@ -11,6 +11,8 @@ ruby << EOF
     $info  = {}
 EOF
 
+let s:processed_file=0
+
 function! flay#execute()
     if filereadable( expand("%:p") )
         silent write
@@ -26,16 +28,18 @@ ruby << EOF
     flay.process(VIM::Buffer.current.name)
     flay.analyze
 
-    hash = {}
-    flay.masses.map{|h, m| hash[m] = flay.hashes[h].map(&:line)}
-
     new_signs = []
     total_mass = 0
-    hash.each do |mass, lines|
+
+    flay.masses.each do |hash, mass|
         total_mass += mass
+        hash = flay.hashes[hash]
+
+        lines = hash.map(&:line)
         lines.each do |line|
+            type = flay.identical[hash] ? "Identical" : "Similar"
             new_signs << line.to_i
-            $info[line] = "Similar code found, mass = #{mass}, lines = #{lines.join(",")}"
+            $info[line] = "#{type} code found, mass = #{mass}, lines = #{lines.join(",")}"
             VIM.command ":sign place #{line} name=piet line=#{line} file=#{VIM::Buffer.current.name}"
         end
     end
@@ -48,6 +52,7 @@ ruby << EOF
 
     VIM.command ":echo 'Total Flay score (lower is better) = #{total_mass}'"
 EOF
+    let s:processed_file=1
 endfunction
 
 function! flay#clear_signs()
@@ -58,6 +63,8 @@ ruby << EOF
     $signs = []
     $info  = {}
 EOF
+
+    let s:processed_file=0
 endfunction
 
 function! flay#draw_info()
@@ -69,6 +76,14 @@ ruby << EOF
         VIM.command ":echo ''"
     end
 EOF
+endfunction
+
+function! flay#toggle()
+    if s:processed_file
+        call flay#clear_signs()
+    else
+        call flay#execute()
+    endif
 endfunction
 
 " vim: ai tabstop=4 expandtab shiftwidth=4 softtabstop=4
