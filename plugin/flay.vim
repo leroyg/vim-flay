@@ -11,7 +11,7 @@ endif
 
 let g:loaded_flay = 1
 
-command! -bar Flay cal flay#execute()
+command! -nargs=0 Flay cal flay#execute()
 
 augroup flayFiletypes
     autocmd!
@@ -20,7 +20,8 @@ augroup flayFiletypes
         autocmd FileType ruby :call flay#execute()
     endif
 
-    if exists("g:flay_on_save") && g:flay_on_save
+    " if exists("g:flay_on_save") && g:flay_on_save
+    if !exists("g:flay_on_save")
         autocmd FileWritePre    * :call flay#execute()
         autocmd FileAppendPre   * :call flay#execute()
         autocmd FilterWritePre  * :call flay#execute()
