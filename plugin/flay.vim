@@ -11,7 +11,8 @@ endif
 
 let g:loaded_flay = 1
 
-command! -nargs=0 Flay cal flay#execute()
+command! -nargs=0 Flay call flay#execute()
+command! -nargs=0 FlayClear call flay#clear_signs()
 
 augroup flayFiletypes
     autocmd!
@@ -27,6 +28,8 @@ augroup flayFiletypes
         autocmd FilterWritePre  * :call flay#execute()
         autocmd BufWritePre     * :call flay#execute()
     endif
+
+    autocmd CursorMoved * call flay#draw_info()
 
 augroup END
 
