@@ -6,8 +6,15 @@ endif
 
 let g:loaded_flay = 1
 
-echom "Loading flay's plugin"
-
 com! -bar Flay cal flay#execute()
+
+augroup flayFiletypes
+    autocmd!
+
+    if exists("g:flay_on_open") && g:flay_on_open
+        autocmd FileType ruby :call flay#execute()
+    endif
+
+augroup END
 
 " vim: ai tabstop=4 expandtab shiftwidth=4 softtabstop=4
