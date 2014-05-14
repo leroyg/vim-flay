@@ -14,8 +14,7 @@ EOF
 let s:processed_file=0
 
 function! flay#execute()
-    if match(expand("%:p"), "*/.git/*")
-        echom "asdasd"
+    if match(expand("%:p"), '/.git/*') != -1
         return
     endif
 
