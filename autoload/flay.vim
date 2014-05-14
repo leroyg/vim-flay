@@ -14,6 +14,11 @@ EOF
 let s:processed_file=0
 
 function! flay#execute()
+    if match(expand("%:p"), "*/.git/*")
+        echom "asdasd"
+        return
+    endif
+
     if filereadable( expand("%:p") )
         silent write
         call flay#process_file()
