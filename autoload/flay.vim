@@ -21,6 +21,7 @@ function! flay#execute()
     endif
 endfunction
 
+" Used for any readable file, doesn't force save
 function! flay#process_file()
     if match(expand("%:p"), '/.git/*') != -1 || !filereadable( expand("%:p") )
         return
@@ -59,6 +60,7 @@ EOF
     let s:processed_file=1
 endfunction
 
+" Clear all signs and info
 function! flay#clear_signs()
 ruby << EOF
     $signs.each do |sign|
@@ -86,7 +88,7 @@ function! flay#toggle()
     if s:processed_file
         call flay#clear_signs()
     else
-        call flay#execute()
+        call flay#process_file()
     endif
 endfunction
 

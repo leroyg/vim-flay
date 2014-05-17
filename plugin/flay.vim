@@ -20,11 +20,10 @@ augroup flayFiletypes
     autocmd!
 
     if exists("g:flay_on_open") && g:flay_on_open
-        autocmd FileType ruby :call flay#execute()
+        autocmd FileType ruby :call flay#process_file()
     endif
 
-    " if exists("g:flay_on_save") && g:flay_on_save
-    if !exists("g:flay_on_save")
+    if exists("g:flay_on_save") && g:flay_on_save
         autocmd FileWritePre    *.rb :call flay#process_file()
         autocmd FileAppendPre   *.rb :call flay#process_file()
         autocmd FilterWritePre  *.rb :call flay#process_file()
