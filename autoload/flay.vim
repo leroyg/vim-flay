@@ -13,11 +13,8 @@ EOF
 
 let s:processed_file=0
 
+" Used for commands and not for `on-save` events
 function! flay#execute()
-    if match(expand("%:p"), '/.git/*') != -1
-        return
-    endif
-
     if filereadable( expand("%:p") )
         silent write
         call flay#process_file()
@@ -25,6 +22,10 @@ function! flay#execute()
 endfunction
 
 function! flay#process_file()
+    if match(expand("%:p"), '/.git/*') != -1 || !filereadable( expand("%:p") )
+        return
+    endif
+
 ruby << EOF
     flay = Flay.new
     flay.process(VIM::Buffer.current.name)
@@ -54,6 +55,7 @@ ruby << EOF
 
     VIM.command ":echo 'Total Flay score (lower is better) = #{total_mass}'"
 EOF
+
     let s:processed_file=1
 endfunction
 

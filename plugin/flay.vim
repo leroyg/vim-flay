@@ -25,10 +25,10 @@ augroup flayFiletypes
 
     " if exists("g:flay_on_save") && g:flay_on_save
     if !exists("g:flay_on_save")
-        autocmd FileWritePre    *.rb :call flay#execute()
-        autocmd FileAppendPre   *.rb :call flay#execute()
-        autocmd FilterWritePre  *.rb :call flay#execute()
-        autocmd BufWritePre     *.rb :call flay#execute()
+        autocmd FileWritePre    *.rb :call flay#process_file()
+        autocmd FileAppendPre   *.rb :call flay#process_file()
+        autocmd FilterWritePre  *.rb :call flay#process_file()
+        autocmd BufWritePre     *.rb :call flay#process_file()
     endif
 
     autocmd CursorMoved *.rb call flay#draw_info()
