@@ -21,8 +21,6 @@ function! flay#execute()
     if filereadable( expand("%:p") )
         silent write
         call flay#process_file()
-    else
-        echoerr "Failed to read file " . expand("%:p")
     endif
 endfunction
 
