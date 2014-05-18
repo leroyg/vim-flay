@@ -27,15 +27,15 @@ the code is analyzed.
 OPTIONS                                                         *vimflay-options*
 
 Overview :
-    |flay_on_open| .............. Toggle run on *.rb file load
-    |flay_on_save| .............. Toggle run on *.rb file save
+    |vimflay-flay-on-open| .............. Toggle run on *.rb file load
+    |vimflay-flay-on-save| .............. Toggle run on *.rb file save
 
-g:flay_on_open                                                     *flay_on_open*
+g:flay_on_open                                             *vimflay-flay_on_open*
     By default VimFlay does _not_ execute on open. If you wish to run Flay on
     open, you can do so by setting g:flay_on_open to a non-zero value.
         let g:flay_on_open = 1
 
-g:flay_on_save                                                     *flay_on_save*
+g:flay_on_save                                             *vimflay-flay_on_save*
     By default VimFlay does _not_ execute on save. If you wish to run Flay on
     open, you can do so by setting g:flay_on_save to a non-zero value.
         let g:flay_on_save = 1
