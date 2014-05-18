@@ -25,6 +25,10 @@ Refactored code where the screams stop:
 Installation
 ------------
 
+In order to use vim-flay your installation of Vim must support +ruby and
++signs. If you are unsure if your version of Vim supports these you can
+find out via `vim --version`.
+
 If you don't have pathogen or vundle, stop what you're doing and setup one of
 them first. You'll thank me some day.
 
