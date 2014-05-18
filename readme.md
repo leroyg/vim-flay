@@ -66,6 +66,8 @@ There are other useful commands:
 * FlayToggle - toggles between Flay and FlayClear
 * FlayList - lists all bad line numbers in the current file
 
+For in-vim help, use `:help vimflay`
+
 -------------
 Configuration
 -------------
