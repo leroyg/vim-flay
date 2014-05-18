@@ -54,7 +54,7 @@ Usage
 -----
 
 By default there are no mappings. It's up to you to make your own mapping. I
-use the follow:
+use the following:
 
     nnoremap <Leader>f :Flay<CR>
 
