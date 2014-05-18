@@ -1,5 +1,5 @@
-VimFlay
-=======
+Vim Flay
+========
 
 VimFlay analyzes structural similarities within Ruby code and reports on code
 that is _too_ similar. Ruby is well known for the advocating of DRY code and
