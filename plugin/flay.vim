@@ -20,7 +20,7 @@ augroup flayFiletypes
     autocmd!
 
     if exists("g:flay_on_open") && g:flay_on_open
-        autocmd FileType ruby :call flay#process_file()
+        autocmd FileType ruby silent :call flay#process_file()
     endif
 
     if exists("g:flay_on_save") && g:flay_on_save

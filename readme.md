@@ -49,6 +49,42 @@ grab the plugin and put it in your bundle folder and you're done.
     $ cd ~/.vim/bundle/
     $ git clone https://github.com/prophittcorey/vim-flay.git
 
+-----
+Usage
+-----
+
+By default there are no mappings. It's up to you to make your own mapping. I
+use the follow:
+
+    nnoremap <Leader>f :Flay<CR>
+
+The `Flay` command processed the current file and signs any bad lines.
+
+There are other useful commands:
+
+* FlayClear - clears all signs
+* FlayToggle - toggles between Flay and FlayClear
+* FlayList - lists all bad line numbers in the current file
+
+-------------
+Configuration
+-------------
+
+There are some configurable settings in vim-flay. The ones of most interest
+involve the automatic execution of `Flay`. At the moment we have two possible
+settings.
+
+* g:flay_on_open
+* g:flay_on_save
+
+By default, both of these settings are disabled. If you want to set them you
+can specify a truth value in your .vimrc file.
+
+Example:
+
+    let g:flay_on_open=1
+    let g:flay_on_save=1
+
 -------
 License
 -------
