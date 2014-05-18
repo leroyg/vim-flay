@@ -9,6 +9,10 @@ The Vim plugin relies on the gem `flay` which was written by Ryan Davis.
 
     https://github.com/seattlerb/flay
 
+VimFlay attempts to be unobtrusive yet informative. The plugin will sign a
+number of lines where code is non-DRY and when the cursor is placed on line
+with a sign there will be a subtle status message within the command bar.
+
 Below is an example of non-DRY code and VimFlay's complaints:
 
 ![alt text](snapshots/bad.png "VimFlay, bad code shown.")
