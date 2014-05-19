@@ -1,5 +1,9 @@
 " encoding: utf-8
 
+" File:        flay.vim
+" Author:      Corey Prophitt <prophitt.corey [at] gmail [dot] com>
+" Licence:     MIT
+
 if ( exists('g:loaded_flay') && g:loaded_flay ) || v:version < 700 || &cp
     finish
 endif

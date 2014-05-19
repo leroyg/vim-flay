@@ -1,5 +1,9 @@
 " encoding: utf-8
 
+" File:        flay.vim
+" Author:      Corey Prophitt <prophitt.corey [at] gmail [dot] com>
+" Licence:     MIT
+
 " Load gems first time we execute the script
 ruby << EOF
     require "rubygems"
