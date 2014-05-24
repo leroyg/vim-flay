@@ -8,9 +8,9 @@
 ruby << EOF
     require "rubygems"
     require "flay"
-
-    VIM.command ":sign define piet text=>> texthl=Search"
 EOF
+
+sign define piet text=>> texthl=Search
 
 let s:lines=[]
 let s:line_info={}
@@ -100,13 +100,11 @@ endfunction
 
 function! flay#list()
     if s:processed_file
-ruby << EOF
-        if $signs.length == 0
-            VIM.command ":echo 'No lines to flay'"
+        if len(s:lines) > 0
+            echo "Lines to flay = " . join(s:lines, ",")
         else
-            VIM.command ":echo 'Lines to flay = #{$signs.join(",")}'"
+            echo "No lines to flay"
         end
-EOF
     else
         echo "File not processed, did you run Flay?"
     endif
