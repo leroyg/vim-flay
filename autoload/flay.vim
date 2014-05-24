@@ -10,8 +10,6 @@ ruby << EOF
     require "flay"
 EOF
 
-sign define piet text=>> texthl=Search
-
 let s:lines=[]
 let s:line_info={}
 let s:processed_file=0
