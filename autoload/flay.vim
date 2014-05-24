@@ -66,15 +66,19 @@ endfunction
 
 " Clear all signs and info
 function! flay#clear_signs()
+    if s:processed_file
 ruby << EOF
-    $signs.each do |sign|
-        VIM.command ":sign unplace #{sign}"
-    end
-    $signs = []
-    $info  = {}
+        $signs.each do |sign|
+            VIM.command ":sign unplace #{sign}"
+        end
+        $signs = []
+        $info  = {}
 EOF
-
-    let s:processed_file=0
+        let s:processed_file=0
+        echo "All signs cleared"
+    else
+        echo "File not processed, did you run Flay?"
+    end
 endfunction
 
 function! flay#draw_info()
