@@ -10,11 +10,10 @@ ruby << EOF
     require "flay"
 
     VIM.command ":sign define piet text=>> texthl=Search"
-
-    $signs = []
-    $info  = {}
 EOF
 
+let s:lines=[]
+let s:line_info={}
 let s:processed_file=0
 
 " Used for commands and not for `on-save` events
@@ -45,19 +44,21 @@ ruby << EOF
 
         lines = hash.map(&:line)
         lines.each do |line|
-            type = flay.identical[hash] ? "Identical" : "Similar"
             new_signs << line.to_i
-            $info[line] = "#{type} code found, mass = #{mass}, lines = #{lines.join(",")}"
+
+            type = flay.identical[hash] ? "Identical" : "Similar"
+            info = "#{type} code found, mass = #{mass}, lines = #{lines.join(",")}"
+
+            VIM.command "let s:line_info['#{line}'] = '#{info}'"
             VIM.command ":sign place #{line} name=piet line=#{line} file=#{VIM::Buffer.current.name}"
         end
     end
 
-    ($signs - new_signs).each do |bad_sign|
+    (VIM.evaluate("s:lines") - new_signs).each do |bad_sign|
         VIM.command ":sign unplace #{bad_sign}"
     end
 
-    $signs = new_signs
-
+    VIM.command "let s:lines=[#{new_signs.join(",")}]"
     VIM.command ":echo 'Total Flay score (lower is better) = #{total_mass}'"
 EOF
 
@@ -67,13 +68,11 @@ endfunction
 " Clear all signs and info
 function! flay#clear_signs()
     if s:processed_file
-ruby << EOF
-        $signs.each do |sign|
-            VIM.command ":sign unplace #{sign}"
-        end
-        $signs = []
-        $info  = {}
-EOF
+        for line in s:lines
+            execute "sign unplace " . line
+        endfor
+        let s:line_info={}
+        let s:lines=[]
         let s:processed_file=0
         echo "All signs cleared"
     else
@@ -82,14 +81,13 @@ EOF
 endfunction
 
 function! flay#draw_info()
-ruby << EOF
-    line = VIM.evaluate("line('.')").to_i
-    if $signs.include?(line)
-        VIM.command ":echo '#{$info[line]}'"
+    let current_line=line(".")
+    if index(s:lines, current_line) != -1
+        echo "Current Line!"
+        echo s:line_info[current_line]
     else
-        VIM.command ":echo ''"
+        echo ""
     end
-EOF
 endfunction
 
 function! flay#toggle()
