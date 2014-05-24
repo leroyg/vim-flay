@@ -97,9 +97,17 @@ function! flay#toggle()
 endfunction
 
 function! flay#list()
+    if s:processed_file
 ruby << EOF
-    VIM.command ":echo 'Lines to flay = #{$signs.join(",")}'"
+        if $signs.length == 0
+            VIM.command ":echo 'No lines to flay'"
+        else
+            VIM.command ":echo 'Lines to flay = #{$signs.join(",")}'"
+        end
 EOF
+    else
+        echo "File not processed, did you run Flay?"
+    endif
 endfunction
 
 " vim: ai tabstop=4 expandtab shiftwidth=4 softtabstop=4
