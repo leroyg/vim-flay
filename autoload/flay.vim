@@ -8,6 +8,8 @@
 ruby << EOF
     require "rubygems"
     require "flay"
+
+    flay = Flay.new
 EOF
 
 sign define piet text=>> texthl=Search
@@ -31,7 +33,6 @@ function! flay#process_file()
     endif
 
 ruby << EOF
-    flay = Flay.new
     flay.process(VIM::Buffer.current.name)
     flay.analyze
 
