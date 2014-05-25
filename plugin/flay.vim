@@ -13,9 +13,15 @@ if !has('signs') || !has('ruby')
     finish
 endif
 
-let g:loaded_flay = 1
+let g:loaded_flay=1
 
-sign define piet text=>> texthl=Search
+if exists("g:flay_piet_text")
+    let s:piet_text=g:flay_piet_text
+else
+    let s:piet_text=">>"
+endif
+
+execute "sign define piet text=" . s:piet_text . " texthl=Search"
 
 command! -nargs=0 Flay call flay#execute()
 command! -nargs=0 FlayClear call flay#clear_signs()
