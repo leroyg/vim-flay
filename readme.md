@@ -87,6 +87,11 @@ Example:
     let g:flay_on_open=1
     let g:flay_on_save=1
 
+In addition, you can specify your own sign text. The default is ">>" but you
+can specify your own:
+
+    let g:flay_piet_text="!!"
+
 -------
 License
 -------
