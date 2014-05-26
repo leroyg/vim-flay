@@ -63,7 +63,6 @@ EOF
     let s:processed_file=1
 endfunction
 
-" Clear all signs and info
 function! flay#clear_signs()
     if s:processed_file
         for line in s:lines
