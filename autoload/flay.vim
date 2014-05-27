@@ -14,15 +14,14 @@ let s:lines=[]
 let s:line_info={}
 let s:processed_file=0
 
-" Used for commands and not for `on-save` events
 function! flay#execute()
     if filereadable( expand("%:p") )
+        " Force save, may be modified or new..
         silent write
         call flay#process_file()
     endif
 endfunction
 
-" Used for any readable file, doesn't force save
 function! flay#process_file()
     if match(expand("%:p"), '/.git/*') != -1 || !filereadable( expand("%:p") )
         return
