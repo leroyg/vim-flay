@@ -13,6 +13,13 @@ if !has('signs') || !has('ruby')
     finish
 endif
 
+if !executable("flay")
+    echoerr "To use this plugin you must install the Flay gem. " .
+                \ "Install the gem on your local system with `" .
+                \ "gem install flay`"
+    finish
+endif
+
 let g:loaded_flay=1
 
 if exists("g:flay_piet_text")
