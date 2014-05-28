@@ -1,16 +1,16 @@
 Vim Flay
 ========
 
-VimFlay analyzes structural similarities within Ruby code and reports on code
+Vim Flay analyzes structural similarities within Ruby code and reports on code
 that is _too_ similar. Ruby is well known for the advocating DRY code and
 this plugin does just that-- screams at you when your code isn't DRY and keeps
 quiet when your code appears DRY.
 
-VimFlay relies on the gem `flay` which was written by Ryan Davis.
+Vim Flay relies on the gem `flay` which was written by Ryan Davis.
 
     https://github.com/seattlerb/flay
 
-VimFlay attempts to be unobtrusive yet informative. The plugin will sign a
+Vim Flay attempts to be unobtrusive yet informative. The plugin will sign a
 number of lines where code is too similar and when the cursor is placed on
 line with a sign there will be a subtle status message within the command bar.
 
