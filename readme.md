@@ -33,6 +33,12 @@ In order to use vim-flay your installation of Vim must support +ruby and
 +signs. If you are unsure if your version of Vim supports these you can
 find out via `vim --version`.
 
+If you're an Ubuntu user you probably don't have Ruby support (Ubuntu comes with
+vim-tiny installed, which has many features disabled). You can fix install
+another version of vim that has Ruby and other features enabled:
+
+    $ sudo apt-get install vim-nox
+
 If you don't have pathogen or vundle, stop what you're doing and setup one of
 them first. You'll thank me some day.
 
