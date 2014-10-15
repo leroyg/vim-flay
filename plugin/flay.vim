@@ -9,7 +9,7 @@ if ( exists('g:loaded_flay') && g:loaded_flay ) || v:version < 700 || &cp
 endif
 
 if !has('signs') || !has('ruby')
-    echoerr "Compile VIM with signs and ruby interop to use this plugin."
+    echoerr "Compile VIM with +signs and +ruby to use this plugin."
     finish
 endif
 
