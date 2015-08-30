@@ -50,13 +50,21 @@ $ sudo apt-get install install vim-nox
 Installation
 ------------
 
-Now you need the vim-flay plugin. The plugin is Pathogen compatible. You can
-grab the plugin and put it in your bundle folder and you're done.
+With the requirements out of the way all you need to do is install the plugin
+itself. If you are a Pathogen user you are in luck because this plugin is
+Pathogen friendly. All you need to do is drop this plugin in your `bundle`
+folder and you are good to go.
 
-    $ cd ~/.vim/bundle/
-    $ git clone https://github.com/prophittcorey/vim-flay.git
+```bash
+$ cd ~/.vim/bundle/
+$ git clone https://github.com/prophittcorey/vim-flay.git
+```
 
------
+If you don't have Pathogen set up I highly recommend you check it out. It saves
+a lot of headaches when installing *vim* plugins.
+
+Check out Pathogen [here](https://github.com/tpope/vim-pathogen).
+
 Usage
 -----
 
@@ -75,7 +83,6 @@ There are other useful commands:
 
 For in-vim help, use `:help vimflay`
 
--------------
 Configuration
 -------------
 
@@ -99,7 +106,6 @@ can specify your own:
 
     let g:flay_piet_text="!!"
 
--------
 License
 -------
 
