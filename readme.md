@@ -73,15 +73,16 @@ use the following:
 
     nnoremap <Leader>f :Flay<CR>
 
-The `Flay` command processed the current file and signs any bad lines.
+The `Flay` command processes the current file and marks any lines with similar
+code.
 
-There are other useful commands:
+There are a few other useful commands,
 
-* FlayClear - clears all signs
-* FlayToggle - toggles between Flay and FlayClear
-* FlayList - lists all bad line numbers in the current file
+1. `FlayClear` clears all marks
+2. `FlayToggle` toggles between Flay and FlayClear
+3. `FlayList` lists all bad line numbers in the current file
 
-For in-vim help, use `:help vimflay`
+For help within *vim*, use `:help vimflay`.
 
 Configuration
 -------------
