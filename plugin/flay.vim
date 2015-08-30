@@ -25,7 +25,7 @@ let g:loaded_flay=1
 if exists("g:flay_piet_text")
     let s:piet_text=g:flay_piet_text
 else
-    let s:piet_text="✗"
+    let s:piet_text=">>"
 endif
 
 execute "sign define piet text=" . s:piet_text . " texthl=Search"
