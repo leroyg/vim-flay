@@ -10,7 +10,7 @@ Vim Flay attempts to be unobtrusive yet informative. The plugin will sign a
 number of lines where code is too similar and when the cursor is placed on
 line with a sign there will be a subtle status message within the command bar.
 
-Please note, *vim-flay* ignores the naming of variables and functions and only
+Note, *vim-flay* ignores the naming of variables and functions and only
 analyzes structure for similarities. Of course, *vim-flay* can help find code
 that is the result of copy-pasting but that is just the beginning of what
 *vim-flay* can do.
