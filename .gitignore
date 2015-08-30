@@ -1,4 +1,4 @@
-# OS
+# Ignore any operating system artifacts
 ._*
 [Tt]humbs.db
 [Dd]esktop.ini
@@ -6,20 +6,7 @@
 .Trashes
 .Spotlight-V100
 
-# Folders
-bin/
-build/
-dist/
-node_modules/
-
-# Node
-npm-debug.log
-
-# Python
-*.pyc
-__init__.py
-
-# Vim
+# Ignore any Vim artifacts
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~
@@ -27,13 +14,8 @@ Session.vim
 .netrwhist
 *~
 
-# Ctags
+# Ignore any ctag ifles
 tags
 
-# Binaries
-*.out
-*.o
-*.exe
-*.dylib
-*.lib
-*.a
+# Ignore all t task files
+.tasks.*
