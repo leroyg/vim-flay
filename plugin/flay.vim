@@ -29,7 +29,7 @@ else
 endif
 
 if !exists("g:flay_minimum_mass")
-    let g:flay_minimum_mass=2
+    let g:flay_minimum_mass=6
 endif
 
 execute "sign define piet text=" . s:piet_text . " texthl=Search"
