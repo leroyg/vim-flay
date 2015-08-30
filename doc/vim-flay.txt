@@ -49,6 +49,12 @@ g:flay_piet_text                                       *vimflay-flay_piet_text*
 
         let g:flay_piet_text="!!"
 
+g:flay_minimum_mass                                 *vimflay-flay_minimum_mass*
+    By default, the minimum mass is 6. Any number between 2 and 20 make sense
+    to use.
+
+        let g:flay_minimum_mass = 16
+
 ===============================================================================
 MAPPINGS                                                     *vimflay-mappings*
 
