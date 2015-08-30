@@ -28,6 +28,10 @@ else
     let s:piet_text=">>"
 endif
 
+if !exists("g:flay_minimum_mass")
+    let g:flay_minimum_mass=2
+endif
+
 execute "sign define piet text=" . s:piet_text . " texthl=Search"
 
 command! -nargs=0 Flay call flay#execute()
