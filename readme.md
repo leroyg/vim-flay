@@ -87,47 +87,50 @@ For help within *vim*, use `:help vimflay`.
 Configuration
 -------------
 
-There are some configurable settings in vim-flay. The ones of most interest
-involve the automatic execution of `Flay`. At the moment we have two possible
-settings.
+There are some configurable settings in *vim-flay* which can help simplify the
+usage of the plugin. Below are all settings with their defaults shown.
 
-* g:flay_on_open
-* g:flay_on_save
+1. `g:flay_on_open` defaults to 0, change to 1 to enable
+2. `g:flay_on_save` defaults to 0, change to 1 to enable
+3. `g:flay_minimum_mass` defaults to 6, change to any number you prefer
+4. `g:flay_piet_text` defaults to ">>", change it to anything you prefer
 
-By default, both of these settings are disabled. If you want to set them you
-can specify a truth value in your .vimrc file.
+A note on `g:flay_minimum_mass`. The default is a number I feel comfortable with
+but you may find it to be too sensitive to similarities. If that is the case you
+may prefer a number like 10 or 16. You can mess with different numbers until you
+find a number which fits your preference.
 
-Example:
+All of these options are configurable in your `.vimrc` file. Below are a few
+examples of what that would look like,
 
-    let g:flay_on_open=1
-    let g:flay_on_save=1
-
-In addition, you can specify your own sign text. The default is ">>" but you
-can specify your own:
-
-    let g:flay_piet_text="!!"
+```viml
+let g:flay_on_open=0
+let g:flay_on_save=1
+let g:flay_minimum_mass=10
+let g:flay_piet_text="✗"
+```
 
 License
 -------
 
-The MIT License (MIT)
+    The MIT License (MIT)
 
-Copyright (c) 2014, Corey Prophitt.
+    Copyright (c) 2015, Corey Prophitt.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
