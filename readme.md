@@ -2,21 +2,21 @@ Vim Flay
 ========
 
 Vim Flay analyzes structural similarities within Ruby code and reports code
-that is structured similar. Ruby is well known for the advocating DRY code and
-this plugin does just that-- screams at you when your code isn't DRY and keeps
-quiet when your code appears DRY.
-
-Vim Flay relies on the gem `flay` which was written by Ryan Davis.
-
-    https://github.com/seattlerb/flay
+that is structured similar. This is a great way to find code that is prime for
+refactoring. Ruby is well known for the advocating DRY code and this *vim-flay*
+helps do just that.
 
 Vim Flay attempts to be unobtrusive yet informative. The plugin will sign a
 number of lines where code is too similar and when the cursor is placed on
 line with a sign there will be a subtle status message within the command bar.
 
-Flay ignores naming of variables and functions and only analyzes structure for
-similarities. Examine this screenshot, notice how Flay spotted structural
-similarities although the code doesn't share any names or much duplication?
+Please note, *vim-flay* ignores the naming of variables and functions and only
+analyzes structure for similarities. Of course, *vim-flay* can help find code
+that is the result of copy-pasting but that is just the beginning of what
+*vim-flay* can do.
+
+Examine the screenshot below. Notice how *vim-flay* identified the code
+similarities although the code is not the result of copy pasta?
 
 ![alt text](screenshots/flay-in-action.png "Flay finds structural similarities")
 
