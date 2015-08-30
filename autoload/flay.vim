@@ -28,7 +28,7 @@ function! flay#process_file()
     endif
 
 ruby << EOF
-    flay = Flay.new
+    flay = Flay.new(mass: VIM.evaluate('g:flay_minimum_mass').to_i)
     flay.process(VIM::Buffer.current.name)
     flay.analyze
 
@@ -43,7 +43,7 @@ ruby << EOF
         lines.each do |line|
             new_signs << line.to_i
 
-            type = flay.identical[hash] ? "Identical" : "Similar"
+            type = flay.identical[hash] ? 'Identical' : 'Similar'
             info = "#{type} code found, mass = #{mass}, lines = #{lines.join(",")}"
 
             VIM.command "let s:line_info['#{line}'] = '#{info}'"
