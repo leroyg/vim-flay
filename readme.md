@@ -20,29 +20,35 @@ similarities although the code is not the result of copy pasta?
 
 ![alt text](screenshots/flay-in-action.png "Flay finds structural similarities")
 
+Requirements
 ------------
+
+First and foremost, *vim-flay* requires the installation of *flay* which is a
+Ruby gem. Assuming you have Ruby installed, you can install *flay* like so,
+
+```bash
+$ gem install flay
+```
+
+Secondly, *vim-flay* assumes you have compiled *vim* with Ruby support. Many
+*vim* installations come with Ruby support already enabled. You can check your
+installation with the following command,
+
+```bash
+$ vim --version | grep ruby
+```
+
+If you see `+ruby` then you are good to go. If not, you can check your operating
+system's requirements for installing *vim* with Ruby support. If you are an
+Ubuntu user you may not have Ruby support out of the box, but you can easily get
+a version of *vim* that does,
+
+```bash
+$ sudo apt-get install install vim-nox
+```
+
 Installation
 ------------
-
-In order to use vim-flay your installation of Vim must support +ruby and
-+signs. If you are unsure if your version of Vim supports these you can
-find out via `vim --version`.
-
-If you're an Ubuntu user you probably don't have Ruby support (Ubuntu comes with
-vim-tiny installed, which has many features disabled). You can fix install
-another version of vim that has Ruby and other features enabled:
-
-    $ sudo apt-get install vim-nox
-
-If you don't have pathogen or vundle, stop what you're doing and setup one of
-them first. You'll thank me some day.
-
-I assume you have an installation of Ruby and are able to install gems. If not
-you need to seek out how, I recommend RVM to manage Ruby installations.
-
-First and foremost you need to have the Flay gem installed
-
-    $ gem install flay
 
 Now you need the vim-flay plugin. The plugin is Pathogen compatible. You can
 grab the plugin and put it in your bundle folder and you're done.
