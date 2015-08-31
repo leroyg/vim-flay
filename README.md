@@ -3,20 +3,15 @@ Vim Flay
 
 Vim Flay analyzes structural similarities within Ruby code and reports code
 that is structured similar. This is a great way to find code that is prime for
-refactoring. Ruby is well known for the advocating DRY code and this *vim-flay*
-helps do just that.
+refactoring. Ruby is well known for DRY code practices and *vim-flay* helps
+locate code that appears to violate the DRY principle.
 
-Vim Flay attempts to be unobtrusive yet informative. The plugin will sign a
+Vim Flay attempts to be unobtrusive yet informative. The plugin will mark a
 number of lines where code is too similar and when the cursor is placed on
-line with a sign there will be a subtle status message within the command bar.
+line with a mark there will be a subtle status message within the command bar.
 
 Note, *vim-flay* ignores the naming of variables and functions and only
-analyzes structure for similarities. Of course, *vim-flay* can help find code
-that is the result of copy-pasting but that is just the beginning of what
-*vim-flay* can do.
-
-Examine the screenshot below. Notice how *vim-flay* identified the code
-similarities although the code is not the result of copy pasta?
+analyzes code structure for similarities.
 
 ![alt text](screenshots/flay-in-action.png "Flay finds structural similarities")
 
@@ -40,12 +35,22 @@ $ vim --version | grep ruby
 
 If you see `+ruby` then you are good to go. If not, you can check your operating
 system's requirements for installing *vim* with Ruby support. If you are an
-Ubuntu user you may not have Ruby support out of the box, but you can easily get
-a version of *vim* that does,
+Ubuntu user you may not have Ruby support out of the box, but you can easily
+install a version of *vim* that does,
 
 ```bash
 $ sudo apt-get install install vim-nox
 ```
+
+Finally, *vim-flay* requires `+signs` support. Vim Flay uses signs to mark
+lines within Ruby source code. Most installations of *vim* have sign support
+but you can check your installation to be sure,
+
+```bash
+$ vim --version | grep sign
+```
+
+If you see `+signs` in the output there is no problem.
 
 Installation
 ------------
