@@ -56,7 +56,7 @@ Installation
 ------------
 
 With the requirements out of the way all you need to do is install the plugin
-itself. If you are a Pathogen user you are in luck because this plugin is
+itself. If you are a Pathogen user you are in luck because *vim-flay* is
 Pathogen friendly. All you need to do is drop this plugin in your `bundle`
 folder and you are good to go.
 
@@ -73,8 +73,8 @@ Check out Pathogen [here](https://github.com/tpope/vim-pathogen).
 Usage
 -----
 
-By default there are no mappings. It's up to you to make your own mapping. I
-use the following:
+By default there are no mappings. It is up to you to set up your own. I use the
+following:
 
     nnoremap <Leader>f :Flay<CR>
 
@@ -87,13 +87,16 @@ There are a few other useful commands,
 2. `FlayToggle` toggles between Flay and FlayClear
 3. `FlayList` lists all bad line numbers in the current file
 
-For help within *vim*, use `:help vimflay`.
+For *vim-flay* help within *vim*, use `:help vimflay`. You can test out all of
+these commands within *vim* without a mapping. You can do so by running the
+command within vim such as `:FlayToggle` within `normal` mode.
 
 Configuration
 -------------
 
 There are some configurable settings in *vim-flay* which can help simplify the
-usage of the plugin. Below are all settings with their defaults shown.
+usage of the plugin. Below are all settings with their defaults shown. These
+settings are also within the *vim* docs for *vim-flay*.
 
 1. `g:flay_on_open` defaults to 0, change to 1 to enable
 2. `g:flay_on_save` defaults to 0, change to 1 to enable
@@ -103,7 +106,7 @@ usage of the plugin. Below are all settings with their defaults shown.
 A note on `g:flay_minimum_mass`. The default is a number I feel comfortable with
 but you may find it to be too sensitive to similarities. If that is the case you
 may prefer a number like 10 or 16. You can mess with different numbers until you
-find a number which fits your preference.
+find a number that fits your preference.
 
 All of these options are configurable in your `.vimrc` file. Below are a few
 examples of what that would look like,
